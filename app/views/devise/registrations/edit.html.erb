@@ -1,24 +1,12 @@
 <div class="container">
   <div class="row">
     <!-- Profile -->
-    <div class="col-xl-4 col-lg-5">
-      <div class="card shadow mb-4">
-        <!-- Card Header - Dropdown -->
-        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-          <h6 class="m-0 font-weight-bold text-primary">Profile</h6>
-        </div>
-        <!-- Card Body -->
-        <div class="card-body">
-          <%= image_tag 'avatar.jpg', class:"mx-auto d-block img-thumbnail profile-round"%>
-        </div>
-      </div>
-    </div>
     <!-- Information Details-->
-    <div class="col-xl-8 col-lg-7">
+    <div class="col-xl-12 col-lg-7">
       <div class="card shadow mb-4">
         <!-- Card Header -->
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-          <h6 class="m-0 font-weight-bold text-primary">Edit Information</h6>
+          <h6 class="m-0 font-weight-bold text-dark">Edit Information</h6>
         </div>
         <!-- Main Form Content -->
         <div class="card-body">
@@ -50,7 +38,7 @@
               <label>Current Password <span class="text-danger">(Must Fill Field)</span></label>
               <%= f.password_field :current_password, autocomplete: false, class:"form-control", placeholder:"Current Password",readonly:"readonly", onfocus:"javascript: this.removeAttribute('readonly')"%>
             </div>
-            <%= f.submit "Update Profile" ,class:"btn btn-primary btn-small"%>
+            <%= f.submit "Update Profile" ,class:"btn btn-secondary btn-small"%>
           <%end%>
         </div>
       </div>

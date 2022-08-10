@@ -1,7 +1,7 @@
 <!-- Topbar -->
 <nav class="navbar navbar-expand navbar-dark bg-dark topbar mb-4 static-top shadow">
   <a class="navbar-brand" href="#">
-    <img src="food-app/app/assets/images/good-food.webp" width="30" height="30" class="d-inline-block align-top" alt="" >
+    <%= image_tag 'good-food.webp', width:"40", height:"30" ,class:"d-inline-block align-top img-profile rounded-circle" %>
     Food Mania
   </a>
   <!-- Topbar Navbar -->
@@ -40,13 +40,14 @@
     <%else%>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to new_admin_session_path do%>
-            <button  class="btn btn-default navbar-btn text-gray-200">Sign In</button>
+            <button  class="btn btn-default navbar-btn text-gray-200"><%= image_tag 'log-in.png', height:"20px", width:"20px"%> Sign In</button>
             <%# <span class="glyphicon glyphicon-user">Sign In</span> %>
           </li>
         <%end%>
         <li><%= link_to new_admin_registration_path do%>
             <%# <span class="glyphicon glyphicon-user">Sign Up</span> %>
-            <button  class="btn btn-default navbar-btn text-gray-200">Sign Up</button>
+            <%# <%= image_tag 'icons8-log-out-32'%>
+            <button  class="btn btn-default navbar-btn text-gray-200"><%= image_tag 'add-user.png', height:"20px", width:"20px"%> Sign Up</button>
           </li>
         </ul>
       <%end%>
