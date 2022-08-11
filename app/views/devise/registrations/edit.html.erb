@@ -20,7 +20,7 @@
               <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
             <% end %>
             <div class="form-group">
-              <label>New Password <span class="text-warning">(Leave Blank If No Change)</span>
+              <label>New Password <span class="text-primary">(Optional)</span>
                 <span class="text-muted">
                   <% if @minimum_password_length %>
                     <br />
@@ -35,7 +35,7 @@
               <%= f.password_field :password_confirmation, autocomplete: false, class:"form-control", placeholder:"Confirm Password",readonly:"readonly", onfocus:"javascript: this.removeAttribute('readonly')"%>
             </div>
             <div class="form-group">
-              <label>Current Password <span class="text-danger">(Must Fill Field)</span></label>
+              <label>Current Password <span class="text-danger">*</span></label>
               <%= f.password_field :current_password, autocomplete: false, class:"form-control", placeholder:"Current Password",readonly:"readonly", onfocus:"javascript: this.removeAttribute('readonly')"%>
             </div>
             <%= f.submit "Update Profile" ,class:"btn btn-secondary btn-small"%>
