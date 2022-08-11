@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_08_144941) do
+ActiveRecord::Schema.define(version: 2022_08_11_174700) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -20,8 +20,15 @@ ActiveRecord::Schema.define(version: 2022_08_08_144941) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "manager_id"
+    t.string "fullname"
+    t.string "cnic"
+    t.string "address"
+    t.integer "salary"
+    t.string "contact"
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "admins", "admins", column: "manager_id"
 end
