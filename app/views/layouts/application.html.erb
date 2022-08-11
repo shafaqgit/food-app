@@ -1,16 +1,41 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FoodApp</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Admin - Dashboard</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-    <%= yield %>
-  </body>
-</html>
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    </head>
+    <body class="d-flex flex-column min-vh-100" id="page-top">
+      <!-- Page Wrapper -->
+      <div id="wrapper">
+        <div id="content-wrapper">
+          <!-- Main Content -->
+          <div id="content">
+            <!-- There should be no nav on the sign_in and sign_up page -->
+            <%if current_page?(new_admin_session_path)|| current_page?(new_admin_registration_path)%>
+            <%else%>
+              <%= render 'shared/header'%>
+            <%end%>
+            <!-- Devise flash messages on sign up and sign in -->
+            <p class="notice"><%= notice %></p>
+            <p class="alert"><%= alert %></p>
+            <%= yield %>
+            <%if current_page?(new_admin_session_path)|| current_page?(new_admin_registration_path)%>
+            <%else%>
+              <%= render 'shared/footer'%>
+            <%end%>
+          </div>
+        </div>
+      </div>
+    </body>
+  </html>
