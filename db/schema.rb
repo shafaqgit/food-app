@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_13_134907) do
+ActiveRecord::Schema.define(version: 2022_08_13_193545) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -40,6 +40,13 @@ ActiveRecord::Schema.define(version: 2022_08_13_134907) do
     t.index ["restaurant_id"], name: "index_categories_on_restaurant_id"
   end
 
+  create_table "categories_menu_items", id: false, force: :cascade do |t|
+    t.integer "category_id", null: false
+    t.integer "menu_item_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "deal_menu_items", force: :cascade do |t|
     t.string "name"
     t.integer "price"
@@ -52,6 +59,8 @@ ActiveRecord::Schema.define(version: 2022_08_13_134907) do
   create_table "deal_menu_items_deals", id: false, force: :cascade do |t|
     t.integer "deal_id", null: false
     t.integer "deal_menu_item_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "deals", force: :cascade do |t|
@@ -69,6 +78,23 @@ ActiveRecord::Schema.define(version: 2022_08_13_134907) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "restaurant_id", null: false
     t.index ["restaurant_id"], name: "index_discounts_on_restaurant_id"
+  end
+
+  create_table "menu_items", force: :cascade do |t|
+    t.string "name"
+    t.integer "price"
+    t.string "image"
+    t.string "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "order_items", force: :cascade do |t|
+    t.string "item_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "order_itemable_type"
+    t.integer "order_itemable_id"
   end
 
   create_table "orders", force: :cascade do |t|
