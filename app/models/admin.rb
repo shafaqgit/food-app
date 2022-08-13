@@ -6,8 +6,9 @@ class Admin < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :subordinates, class_name: "Admin",foreign_key: "manager_id"
+  has_many :employees, class_name: "Admin",foreign_key: "manager_id"
 
   belongs_to :manager, class_name: "Admin", optional: true
-
+  has_one :restaurant, class_name: "Restaurant", foreign_key: "manager_id"
+  belongs_to :restaurant, class_name:"Restaurant", foreign_key:"restaurants_id"
 end

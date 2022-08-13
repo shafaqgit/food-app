@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_11_174700) do
+ActiveRecord::Schema.define(version: 2022_08_13_112749) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,9 +26,51 @@ ActiveRecord::Schema.define(version: 2022_08_11_174700) do
     t.string "address"
     t.integer "salary"
     t.string "contact"
+    t.integer "restaurants_id", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+    t.index ["restaurants_id"], name: "index_admins_on_restaurants_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "restaurant_id", null: false
+    t.index ["restaurant_id"], name: "index_categories_on_restaurant_id"
+  end
+
+  create_table "deals", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "restaurants_id", null: false
+    t.index ["restaurants_id"], name: "index_deals_on_restaurants_id"
+  end
+
+  create_table "discounts", force: :cascade do |t|
+    t.string "name"
+    t.float "discount_percentage"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "restaurant_id", null: false
+    t.index ["restaurant_id"], name: "index_discounts_on_restaurant_id"
+  end
+
+  create_table "restaurants", force: :cascade do |t|
+    t.string "name"
+    t.float "per_cut"
+    t.time "opening_hours"
+    t.time "closing_hours"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "manager_id"
   end
 
   add_foreign_key "admins", "admins", column: "manager_id"
+  add_foreign_key "admins", "restaurants", column: "restaurants_id"
+  add_foreign_key "categories", "restaurants"
+  add_foreign_key "deals", "restaurants", column: "restaurants_id"
+  add_foreign_key "discounts", "restaurants"
+  add_foreign_key "restaurants", "admins", column: "manager_id"
 end
