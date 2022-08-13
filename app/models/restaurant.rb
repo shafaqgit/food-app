@@ -4,4 +4,5 @@ class Restaurant < ApplicationRecord
     has_many :deals, class_name:"Deal", foreign_key:"restaurants_id"
     has_many :categories
     has_many :discounts
+    has_many :orders 
 end
