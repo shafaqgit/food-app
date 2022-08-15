@@ -14,5 +14,5 @@ ActiveAdmin.register Restaurant do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
+  permit_params :name, :per_cut, :opening_hours, :closing_hours, :manager_id
 end

@@ -11,4 +11,6 @@ class Admin < ApplicationRecord
   belongs_to :manager, class_name: "Admin", optional: true
   has_one :restaurant, class_name: "Restaurant", foreign_key: "manager_id"
   belongs_to :restaurant, class_name:"Restaurant", foreign_key:"restaurants_id"
+
+  
 end
