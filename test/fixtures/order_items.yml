@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  item_type: MyString
+  order: one
+  menu_item: one
+
+two:
+  item_type: MyString
+  order: two
+  menu_item: two

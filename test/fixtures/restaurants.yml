@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  per_cut: 1.5
+  opening_hours: 2022-08-13 14:40:32
+  closing_hours: 2022-08-13 14:40:32
+
+two:
+  name: MyString
+  per_cut: 1.5
+  opening_hours: 2022-08-13 14:40:32
+  closing_hours: 2022-08-13 14:40:32

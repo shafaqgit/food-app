@@ -1,0 +1,41 @@
+<section id="team" class="pb-5">
+  <div class="container">
+    <h5 class="section-title h1">Restaurants</h5>
+    <div class="row">
+      <% @restaurant.each do |r| %>
+        <!-- Team member -->
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="image-flip" >
+            <div class="mainflip flip-0">
+              <div class="frontside">
+                <div class="card">
+                  <div class="card-body text-center">
+                    <p><img class=" img-fluid" src="https://upload.wikimedia.org/wikipedia/en/thumb/b/bf/KFC_logo.svg/1200px-KFC_logo.svg.png" alt="card image"></p>
+                    <h4 class="card-title"><%=r.name%></h4>
+                    <ul>
+                      <p class="card-text"><b>Opening:</b><%=r.opening_hours%></p>
+                      <p class="card-text"><b>Closing:</b><%=r.closing_hours%></p>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="backside">
+                <div class="card">
+                  <div class="card-body text-center mt-4">
+                    <h4 class="card-title"><%=r.name%></h4>
+                    <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
+                    <!--Insert a button that takes you to menu item-->
+                    <!--this will redirect it to the menu_item controller-->
+                    <%= link_to "Click Me", menuitems_path, class:"btn btn-success btn-sm mx-auto", role:"button"%>
+                    <%# <a class="btn btn-success btn-sm mx-auto" href="#" role="button">Click Me</a> %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <%end%>
+    </div>
+  </div>
+</section>
+<!-- Team -->
