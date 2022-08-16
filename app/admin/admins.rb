@@ -15,6 +15,21 @@ ActiveAdmin.register Admin do
   #   permitted
   # end
 
+  permit_params :email, :password, :manager_id, :fullname, :cnic, :restaurants_id
   
+  form do |f|
+
+    f.inputs do 
+      f.input :fullname
+      f.input :email
+      f.input :password
+      f.input :manager_id
+      f.input :restaurants_id
+      f.input :cnic
+      f.input :address
+      f.input :salary
+      f.input :contact
+    end
+  end
   
 end
