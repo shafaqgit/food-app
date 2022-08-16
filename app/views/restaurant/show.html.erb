@@ -1,16 +1,17 @@
+<div class="container-fluid">
+  <%= search_form_for @q, url: :restaurants, class:"d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" do |form|%>
+    <div class="input-group">
+      <%=form.text_field :name_cont, class:"form-control bg-light border-0 small", placeholder:"Search for..." , arialabel:"Search", ariadescribedby:"basic-addon2"%>
+      <div class="input-group-append">
+        <%=form.submit class:"form-control btn btn-primary"%>
+      </div>
+    </div>
+  <%end%>
+</div>
 <section id="team" class="pb-5">
   <div class="container">
     <h5 class="section-title h1">Restaurants</h5>
     <div class="row">
-      <%= search_form_for @q, url: :restaurants do |form|%>
-        <div class="form-group">
-          <%=form.label :name_cont %>
-          <%=form.text_field :name_cont, class:"form-control"%>
-        </div>
-        <div class="form-group">
-          <%=form.submit class:"form-control btn btn-primary"%>
-        </div>
-      <%end%>
       <% @restaurant.each do |r| %>
         <!-- Team member -->
         <div class="col-xs-12 col-sm-6 col-md-4">
