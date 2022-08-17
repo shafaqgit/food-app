@@ -1,0 +1,54 @@
+<div class="container-fluid">
+  <%= search_form_for @q, url: :deals, class:"d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" do |form|%>
+    <div class="input-group">
+      <%=form.text_field :name_cont, class:"form-control bg-light border-0 small", placeholder:"Search for..." , arialabel:"Search", ariadescribedby:"basic-addon2"%>
+      <div class="input-group-append">
+        <%=form.submit class:"form-control btn btn-primary"%>
+      </div>
+    </div>
+  <%end%>
+</div>
+<section id="team" class="pb-5">
+  <div class="container">
+    <h5 class="section-title h1">Deals</h5>
+    <div class="row">
+      <% @deal.each do |r| %>
+        <!-- Team member -->
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="image-flip" >
+            <div class="mainflip flip-0">
+              <div class="frontside">
+                <div class="card">
+                  <div class="card-body text-center">
+                    <p><img class=" img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0mTJXc9Qs8QFr-0Je5c5YxqFihFrtmV0EqWs52EgEGA&s" alt="card image"></p>
+                    <h4 class="card-title"><%=r.name%></h4>
+                    <ul>
+                      <p class="card-text"><b>Restaurant:</b><%=r.restaurants_id%></p>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="backside">
+                <div class="card">
+                  <div class="card-body text-center mt-4">
+                    <h4 class="card-title"><%=r.name%></h4>
+                    <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
+                    <!--Insert a button that takes you to menu item-->
+                    <!--this will redirect it to the menu_item controller-->
+                    <%if current_admin.manager_id.blank?%>
+                      <%= link_to "Click Me", deals_path, class:"btn btn-success btn-sm mx-auto", role:"button"%>
+                    <%else%>
+                      <%= link_to "Click Me", deals_path, class:"btn btn-success btn-sm mx-auto", role:"button"%>
+                    <%end%>
+                    <%# <a class="btn btn-success btn-sm mx-auto" href="#" role="button">Click Me</a> %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <%end%>
+    </div>
+  </div>
+</section>
+<!-- Team -->
