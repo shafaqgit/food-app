@@ -5,11 +5,11 @@
       <div class="card shadow mb-4 ">
         <!-- Card Header -->
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between border-bottom-primary">
-          <h6 class="m-0 font-weight-bold text-center text-dark justify-content-between ">Add Menu Item</h6>
+          <h6 class="m-0 font-weight-bold text-center text-dark justify-content-between ">Add Deal Menu Item</h6>
         </div>
         <!-- Main Item Add Content -->
         <div class="card-body">
-          <%= form_with model: @menuitem, url: menuitems_url, method: :post, local: true do |f| %>
+          <%= form_with model: @deal_item, url: deal_menu_items_path, method: :post, local: true do |f| %>
             <div class="form-group">
               <label>Name</label>
               <%= f.text_field :name, autofocus: true, autocomplete: "name",class:"form-control",placeholder:"Name" %>
@@ -23,10 +23,10 @@
               <%= f.text_field :status, autofocus: true, autocomplete: "status",class:"form-control",placeholder:"Status" %>
             </div>
             <div class="file-upload-wrapper">
-              <%= f.file_field :cover_photo, autofocus: true,class:"file-upload", dataheight:"500" %>
+              <%= f.file_field :deal_photo, autofocus: true,class:"file-upload", dataheight:"500" %>
             </div>
             <hr>
-            <%= f.submit "Add Item", class:"btn btn-primary btn-user btn-block mb-sm-2 btn-sm"%>
+            <%= f.submit "Add Deal Item", class:"btn btn-primary btn-user btn-block mb-sm-2 btn-sm"%>
           </div>
         </div>
         <!--ends here-->

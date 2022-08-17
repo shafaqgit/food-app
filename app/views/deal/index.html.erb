@@ -36,9 +36,9 @@
                     <!--Insert a button that takes you to menu item-->
                     <!--this will redirect it to the menu_item controller-->
                     <%if current_admin.manager_id.blank?%>
-                      <%= link_to "Click Me", deals_path, class:"btn btn-success btn-sm mx-auto", role:"button"%>
+                      <%= link_to "Click Me", new_deal_menu_item_path, class:"btn btn-success btn-sm mx-auto", role:"button"%>
                     <%else%>
-                      <%= link_to "Click Me", deals_path, class:"btn btn-success btn-sm mx-auto", role:"button"%>
+                      <%= link_to "Click Me", deal_menu_items_path, class:"btn btn-success btn-sm mx-auto", role:"button"%>
                     <%end%>
                     <%# <a class="btn btn-success btn-sm mx-auto" href="#" role="button">Click Me</a> %>
                   </div>

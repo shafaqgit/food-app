@@ -7,5 +7,7 @@ class DealController < ApplicationController
         @deal=@q.result
 
     end
+
+    
     
 end
