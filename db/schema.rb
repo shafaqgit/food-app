@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_16_112243) do
+ActiveRecord::Schema.define(version: 2022_08_18_160840) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -151,6 +151,15 @@ ActiveRecord::Schema.define(version: 2022_08_16_112243) do
     t.index ["restaurant_id"], name: "index_discounts_on_restaurant_id"
   end
 
+  create_table "menu_categories", force: :cascade do |t|
+    t.integer "category_id", null: false
+    t.integer "menu_item_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_menu_categories_on_category_id"
+    t.index ["menu_item_id"], name: "index_menu_categories_on_menu_item_id"
+  end
+
   create_table "menu_items", force: :cascade do |t|
     t.string "name"
     t.integer "price"
@@ -224,6 +233,8 @@ ActiveRecord::Schema.define(version: 2022_08_16_112243) do
   add_foreign_key "categories", "restaurants"
   add_foreign_key "deals", "restaurants", column: "restaurants_id"
   add_foreign_key "discounts", "restaurants"
+  add_foreign_key "menu_categories", "categories"
+  add_foreign_key "menu_categories", "menu_items"
   add_foreign_key "options", "menu_items"
   add_foreign_key "order_items", "orders"
   add_foreign_key "orders", "restaurants"

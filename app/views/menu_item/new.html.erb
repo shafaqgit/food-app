@@ -9,10 +9,14 @@
         </div>
         <!-- Main Item Add Content -->
         <div class="card-body">
-          <%= form_with model: @menuitem, url: menuitems_url, method: :post, local: true do |f| %>
+          <%= form_with model: @menuitem, url: menuitems_path, method: :post, local: true do |f| %>
             <div class="form-group">
               <label>Name</label>
               <%= f.text_field :name, autofocus: true, autocomplete: "name",class:"form-control",placeholder:"Name" %>
+            </div>
+            <div class="form-group">
+              <label>Category ID</label>
+              <%= f.select :category_id,  ((0..50).map {|i| [i,i] } << ["ID",nil]) %>
             </div>
             <div class="form-group">
               <label>Price</label>

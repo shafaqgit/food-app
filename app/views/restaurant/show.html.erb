@@ -36,7 +36,13 @@
                     <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
                     <!--Insert a button that takes you to menu item-->
                     <!--this will redirect it to the menu_item controller-->
-                    <%= link_to "Click Me", menuitems_new_path, class:"btn btn-success btn-sm mx-auto", role:"button"%>
+                    <!--For adding menuitems_path go to -->
+                    <!--menuitems_new_path -->
+                    <%if current_admin.manager_id.blank?%>
+                      <%= link_to "Click Me", new_category_path, class:"btn btn-success btn-sm mx-auto", role:"button"%>
+                    <%else%>
+                      <%= link_to "Click Me", menuitems_display_path, class:"btn btn-success btn-sm mx-auto", role:"button"%>
+                    <%end%>
                     <%# <a class="btn btn-success btn-sm mx-auto" href="#" role="button">Click Me</a> %>
                   </div>
                 </div>

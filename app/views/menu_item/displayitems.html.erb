@@ -13,6 +13,11 @@
             <div class="col-auto">
               <%= image_tag(r.cover_photo, style:"border-radius: 50%; height: 50px; width:50px;") if r.cover_photo.attached?%>
             </div>
+            <%if current_admin.manager_id.blank?%>
+              <div class="row ml-1">
+                <%=link_to "Edit", edit_menuitem_path(r)%>
+              </div>
+            <%end%>
           </div>
         </div>
       </div>

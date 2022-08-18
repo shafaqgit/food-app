@@ -4,9 +4,7 @@ class DealMenuItemsController < ApplicationController
     
 
     def index
-        
         @q= DealMenuItem.ransack(params[:q])
-        
         @deal_items=@q.result
 
     end
